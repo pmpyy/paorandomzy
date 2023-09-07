@@ -14,7 +14,7 @@ export default {
   },
   methods: {
     playGame() {
-      const choices = ["src/img/rock.png", "src/img/paper.png", "src/img/cut.png", "src/img/heart.png"];
+      const choices = ["https://www.pinclipart.com/picdir/big/559-5590543_rock-paper-scissors-png-clipart.png", "https://www.pinclipart.com/picdir/big/51-511523_rock-paper-rock-paper-scissors-clipart-png-download.png", "https://abdulahadmansoori.github.io/RockPaperScissor/icons/scissor_u.png", "https://static.vecteezy.com/system/resources/previews/001/187/438/original/heart-png.png"];
       this.playerChoice = choices[Math.floor(Math.random() * choices.length)];
       this.computerChoice = choices[Math.floor(Math.random() * choices.length)];
       this.calculateResult();
@@ -23,16 +23,16 @@ export default {
     calculateResult() {
       if (this.playerChoice === this.computerChoice) {
         this.result = "DRAW";
-      } else if (this.playerChoice === "src/img/heart.png") {
+      } else if (this.playerChoice === "https://static.vecteezy.com/system/resources/previews/001/187/438/original/heart-png.png") {
         this.result = "playerOne WIN";
         this.scoreone += 1;
-      } else if (this.computerChoice === "src/img/heart.png") {
+      } else if (this.computerChoice === "https://static.vecteezy.com/system/resources/previews/001/187/438/original/heart-png.png") {
         this.result = "playerTwo WIN";
         this.scoretwo += 1;
       } else if (
-        (this.playerChoice === "src/img/rock.png" && this.computerChoice === "src/img/cut.png") ||
-        (this.playerChoice === "src/img/paper.png" && this.computerChoice === "src/img/rock.png") ||
-        (this.playerChoice === "src/img/cut.png" && this.computerChoice === "src/img/paper.png")
+        (this.playerChoice === "https://www.pinclipart.com/picdir/big/559-5590543_rock-paper-scissors-png-clipart.png" && this.computerChoice === "https://abdulahadmansoori.github.io/RockPaperScissor/icons/scissor_u.png") ||
+        (this.playerChoice === "https://www.pinclipart.com/picdir/big/51-511523_rock-paper-rock-paper-scissors-clipart-png-download.png" && this.computerChoice === "https://www.pinclipart.com/picdir/big/559-5590543_rock-paper-scissors-png-clipart.png") ||
+        (this.playerChoice === "https://abdulahadmansoori.github.io/RockPaperScissor/icons/scissor_u.png" && this.computerChoice === "https://www.pinclipart.com/picdir/big/51-511523_rock-paper-rock-paper-scissors-clipart-png-download.png")
       ) {
         this.result = "playerOne WIN";
         this.scoreone += 1;
@@ -66,7 +66,7 @@ export default {
           <i v-if="!playing" class="fa-regular fa-hand-back-fist"></i>
           <i v-if="!playing" class="fa-regular fa-hand"></i>
         </div> -->
-        <img v-if="!playing" src="src/img/rockpaper.png" alt="Rock Paper" class="img_cover" /><br>
+        <img v-if="!playing" src="https://freesvg.org/img/rock-paper-scissors.png" alt="Rock Paper" class="img_cover" /><br>
         <div class="row">
           <div class="col -center">
             <button @click="playGame" :disabled="gameOver"  class="fa-solid fa-play" style="border-color: #245936;" ></button>
@@ -82,7 +82,7 @@ export default {
     
     <div v-if="playing" class="row">
   <div class="col-sm-6 mb-3 mb-sm-0">
-    <div class="card">
+    <div class="card" >
       <div class="card-body">
         <h5 class="card-title" style="font-size: 30px;">playerOne </h5>
         
@@ -108,7 +108,7 @@ export default {
     </div>
   </div>
   <div class="col-center">
-    <div class="card">
+    <div class="score">
       <h3> {{ result }}</h3>
       <div class="col-center">
             <button v-if="playing" @click="resetGame" class="fa-solid fa-rotate-right" style="border-color: #245936;"></button> 
@@ -140,8 +140,12 @@ export default {
 .card {
   padding: 20px;
   margin: 10px;
+  height: 300px;
   border-color: #5FA777;
   background-color: #EFF6F1 ;
+}
+.score{
+margin: 10px;
 }
 .iconsize{
   height: 2em;
